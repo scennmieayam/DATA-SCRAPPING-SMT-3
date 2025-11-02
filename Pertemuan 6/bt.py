@@ -10,7 +10,8 @@ def main_scrapper(url, directory, file):
     source_text = source_code.text
     soup = BeautifulSoup(source_text, "html.parser")
     # articles = soup.find_all("h3", {"class":["article__title article__title--medium"]})
-    articles2 = soup.find_all(True,{"class":["article__box", "article__title"]})
+    articles2 = soup.find_all(True,{"class":["clearfix"]})
+    
 
     system("clear")
 
@@ -29,6 +30,6 @@ def main_scrapper(url, directory, file):
         fungsi.write_to_file(file_path, "Title: " + article2.a.text + "\n")
 
 
-main_scrapper("https://tekno.kompas.com/gadget", "hasill", "art.txt")
+main_scrapper("https://tekno.kompas.com/read/2025/10/29/18580047/menggenggam-realme-15t-5g-hp-tipis-baterai-besar-yang-ringan-di-tangan", "hasill", "art.txt")
 
-fungsi.read_data("hasill/art.txt")
+# fungsi.read_data("hasill/art.txt")
