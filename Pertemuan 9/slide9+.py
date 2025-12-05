@@ -15,9 +15,25 @@ html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
 data = soup.find_all("div", class_='jobsearch-InfoHeaderContainer css-jpohn6 eu4oa1w0')
 for i in range(len(data)):
-    Pekerjaan = data[i].find("h2", {'class':'jobsearch-JobInfoHeader-title css-1b46x8o e1tiznh50'})
+    Pekerjaan = data[i].find("h2", {'class':'class="jobsearch-JobInfoHeader-title css-16tttqo e1tiznh50"'})
     Perusahaan = data[i].find("span", {'class':'css-qcqa6h e1wnkr790'})
     Lokasi = data[i].find("div", {'class':'css-89aoy7 eu4oa1w0'})
-print(Pekerjaan)
-print(Perusahaan)
-print(Lokasi)
+    if Pekerjaan and Perusahaan and Lokasi:
+        print("Pekerjaan : " + Pekerjaan.text)
+        print("Perusahaan : " + Perusahaan.text)
+        print("Lokasi : " + Lokasi.text)
+        print("=====================================")
+
+print(data)
+driver.quit()
+
+def get_total_page():
+    with open('temp/res.html', 'w', encoding='utf-8') as file:
+        file.write(html)
+
+    soup = BeautifulSoup(html, 'html.parser')
+    pagination = soup.find('ul', class_='css-pygyny eu4oa1w0')
+    print(pagination)
+
+if __name__ == '__main__':
+    get_total_page()
