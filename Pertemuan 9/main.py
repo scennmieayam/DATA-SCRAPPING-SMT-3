@@ -20,7 +20,7 @@ def main_scraper(url):
             Judul = article.find("a", {'class':'article__link'})
             if Judul:
                 print("Judul : " + Judul.text.strip())
-                print("=====================================")
+            print("=====================================")
 
     fungsi.create_directory('hasil')
     file_path = os.path.join('hasil', 'kompasparser.txt')
