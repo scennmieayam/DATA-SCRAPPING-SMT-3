@@ -8,8 +8,8 @@ def klasifikasi_berita(judul):
     judul_lower = judul.lower()
     
     kata_kunci_merah = [
-        "cuaca", "surabaya", "syaban", "banjir", "meluap", "efisiensi", "becak", "kampung", "pesawat"
-    ] # untuk klasifikasi warna berita sesuai foto yang ada di grup
+        "banjir", "hujan lebat", "macet", "jatuh", "ditemukan", "terbakar", "pesawat", "black box"
+    ] # klasifikasi berita bencana diwarnai warna merah
     
     for kata in kata_kunci_merah:
         if kata in judul_lower:
